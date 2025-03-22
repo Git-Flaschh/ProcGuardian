@@ -1,6 +1,3 @@
-
----
-
 # ProcGuardian - Surveillance de processus
 
 Ce dépôt contient un démon de surveillance des processus pour les systèmes Linux. Il est conçu pour détecter des patterns potentiellement malveillants ou indicateurs de compromission dans les processus en cours d'exécution.
@@ -10,7 +7,7 @@ Ce dépôt contient un démon de surveillance des processus pour les systèmes L
 1. Téléchargez le fichier .deb depuis ce dépôt.
 2. Installez le paquet en utilisant la commande suivante :
 ```bash
-sudo dpkg -i nom_du_fichier.deb
+sudo dpkg -i ProcGuardian.deb
 ```
 
 3. Installez Python si ce n'est pas déjà fait :
@@ -32,19 +29,25 @@ Le démon peut être contrôlé à l'aide des commandes suivantes :
 - Pour démarrer le démon :
 
 ```bash
-sudo start nom_du_demon
+sudo procguardian start
 ```
 
 - Pour arrêter le démon :
 
 ```bash
-sudo stop nom_du_demon
+sudo procguardian stop
+```
+
+- Pour vérifier le statut du démon :
+
+```bash
+sudo procguardian status
 ```
 
 - Pour afficher l'aide et les instructions d'utilisation :
 
 ```bash
-nom_du_demon --help
+sudo procguardian --help
 ```
 
 
@@ -58,15 +61,6 @@ Le démon de surveillance des processus offre les fonctionnalités suivantes :
     - Processus inconnus avec des privilèges root
     - Processus exécutés depuis des répertoires suspects (ex : /tmp/)
 3. **Alertes et journalisation** : Génère des alertes et des logs pour les activités suspectes détectées.
-
-## Configuration
-
-Le démon peut être configuré en modifiant le fichier de configuration situé dans `/etc/nom_du_demon/config.yml`. Vous pouvez ajuster les paramètres suivants :
-
-- Intervalle de scan
-- Règles de détection personnalisées
-- Options de notification (e-mail, Slack, etc.)
-
 
 ## Prérequis
 
@@ -82,10 +76,11 @@ Le démon peut être configuré en modifiant le fichier de configuration situé 
 Si vous rencontrez des problèmes, veuillez consulter les logs du système :
 
 ```bash
-sudo journalctl -u nom_du_demon
+sudo journalctl -u procguardian
 ```
 
 
 ## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+
