@@ -1,4 +1,7 @@
+
 # ProcGuardian - Surveillance de processus
+
+![ProcGuardian Logo](logo.jpg "ProcGuardian - Surveillance de processus")
 
 Ce dépôt contient un démon de surveillance des processus pour les systèmes Linux. Il est conçu pour détecter des patterns potentiellement malveillants ou indicateurs de compromission dans les processus en cours d'exécution.
 
