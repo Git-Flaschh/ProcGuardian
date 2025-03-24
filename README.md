@@ -53,7 +53,7 @@ sudo journalctl -u procguardian | grep "SUSPECT"
 - Pour afficher l'aide et les instructions d'utilisation :
 
 ```bash
-sudo procguardian --help
+procguardian --help
 ```
 
 
