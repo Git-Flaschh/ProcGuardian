@@ -46,7 +46,10 @@ sudo procguardian stop
 ```bash
 sudo procguardian status
 ```
-
+- Pour afficher les logs :
+```bash
+sudo journalctl -u procguardian | grep "SUSPECT"
+```
 - Pour afficher l'aide et les instructions d'utilisation :
 
 ```bash
