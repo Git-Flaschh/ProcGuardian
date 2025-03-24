@@ -47,7 +47,7 @@ sudo procguardian stop
 ```bash
 sudo procguardian status
 ```
-- Pour afficher les logs :
+- Pour afficher les alertes sur les processus potentiellement suspects:
 ```bash
 sudo journalctl -u procguardian | grep "SUSPECT"
 ```
