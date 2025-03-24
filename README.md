@@ -21,7 +21,7 @@ sudo apt-get install python3
 
 4. Installez les dépendances requises manuellement :
 ```bash
-sudo apt install python3-pip
+sudo apt install python3-pip #non nécessaire avec Python >= 3.4
 pip3 install psutil
 ```
 
@@ -73,6 +73,7 @@ Le démon de surveillance des processus offre les fonctionnalités suivantes :
 
 - Système d'exploitation Linux
 - Python 3.6 ou supérieur
+- pip si version de Python < 3.4
 - Bibliothèques Python :
     - psutil (installée manuellement avec pip3)
     - time (incluse dans la bibliothèque standard Python)
