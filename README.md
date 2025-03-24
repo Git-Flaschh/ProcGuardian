@@ -21,6 +21,7 @@ sudo apt-get install python3
 
 4. Installez les dépendances requises manuellement :
 ```bash
+sudo apt install python3-pip
 pip3 install psutil
 ```
 
