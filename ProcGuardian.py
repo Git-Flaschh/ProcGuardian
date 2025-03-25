@@ -13,6 +13,7 @@ EXCLUDED_USERS = []
 ALERTED_PIDS = set()  # Ensemble pour mémoriser les PIDs déjà alertés
 
 def init_logging(logfile_path):
+    """Initialise le fichier de log et crée le répertoire s'il n'existe pas."""
     global LOG_FILE
     LOG_FILE = logfile_path
     log_dir = os.path.dirname(LOG_FILE)
@@ -24,6 +25,7 @@ def init_logging(logfile_path):
             exit(1)
 
 def write_alert_log(message):
+    """Écrit un message d'alerte dans le fichier de log."""
     now = datetime.now().strftime("%H:%M:%S %d:%m:%Y")
     formatted_message = f"{now} [ALERT] : {message}\n"
     try:
@@ -35,6 +37,7 @@ def write_alert_log(message):
         exit(1)
 
 def is_sudo(proc):
+    """Détecte si un processus est un 'sudo' et récupère la commande exécutée."""
     try:
         if proc.name().lower() == "sudo":
             cmdline = proc.cmdline()  # Recupere la commande complete lancee par sudo
@@ -45,6 +48,7 @@ def is_sudo(proc):
         return False, ""
 
 def is_tomcat_as_root(proc):
+    """Détecte si un processus Tomcat (Java) tourne en tant que root."""
     try:
         name = proc.name().lower()
         username = proc.username()
@@ -62,6 +66,7 @@ def is_tomcat_as_root(proc):
 #         return False
 
 def is_python_as_root(proc):
+    """Détecte si un processus Python tourne en tant que root."""
     try:
         name = proc.name().lower()
         username = proc.username()
@@ -70,6 +75,7 @@ def is_python_as_root(proc):
         return False
 
 def is_process_using_suspect_files(proc, suspect_paths=["/tmp", "/var/tmp"]):
+    """Vérifie si un processus utilise des fichiers suspects dans des répertoires sensibles."""
     try:
         open_files = proc.open_files()
         for file in open_files:
@@ -106,6 +112,7 @@ def process_alert(proc, alert_type, additional_info=""):
     return True
 
 def main_loop(interval):
+    """Boucle principale qui surveille les processus à intervalles réguliers."""
     while True:
         for proc in psutil.process_iter(['pid', 'name', 'username']):
             try:
