@@ -49,7 +49,7 @@ sudo procguardian status
 ```
 - Pour afficher les alertes sur les processus potentiellement suspects:
 ```bash
-sudo journalctl -u procguardian | grep "SUSPECT"
+cat /var/log/procguard/alerts.log
 ```
 - Pour afficher l'aide et les instructions d'utilisation :
 
