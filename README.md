@@ -49,6 +49,9 @@ sudo procguardian status
 ```
 - Pour afficher les alertes sur les processus potentiellement suspects:
 ```bash
+sudo procguardian logs suspect
+```
+```bash
 cat /var/log/procguard/alerts.log
 ```
 - Pour afficher l'aide et les instructions d'utilisation :
