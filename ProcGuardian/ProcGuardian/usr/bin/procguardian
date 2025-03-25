@@ -1,0 +1,37 @@
+#!/bin/bash
+
+case "$1" in
+    start)
+        systemctl start procguardian.service
+        echo "ProcGuardian démarré."
+        ;;
+    stop)
+        systemctl stop procguardian.service
+        echo "ProcGuardian arrêté."
+        ;;
+    status)
+        systemctl status procguardian.service
+        ;;
+    logs)
+        if [ "$2" == "suspect" ]; then
+            journalctl -u procguardian.service | grep "SUSPECT"
+        else
+            journalctl -u procguardian.service
+        fi
+        ;;
+    --help)
+        echo "Usage: procguardian {start|stop|status|logs [suspect]|--help}"
+        echo "Démon de surveillance des processus Linux"
+        echo ""
+        echo "  start       - Démarre le service de surveillance"
+        echo "  stop        - Arrête le service de surveillance"
+        echo "  status      - Affiche l'état du service"
+        echo "  logs [suspect] - Affiche les journaux (filtrés par 'SUSPECT' si précisé)"
+        echo "  --help      - Affiche cette aide"
+        ;;
+    *)
+        echo "Usage: procguardian {start|stop|status|logs [suspect]|--help}"
+        exit 1
+        ;;
+esac
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=Démon de Surveillance des Processus Linux
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/procguardian/procguardian.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

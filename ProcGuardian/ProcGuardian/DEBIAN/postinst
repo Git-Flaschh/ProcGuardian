@@ -1,0 +1,5 @@
+#!/bin/bash
+systemctl daemon-reload
+pip3 install psutil
+echo "ProcGuardian installé. Utilisez 'procguardian start' pour démarrer le service."
+exit 0

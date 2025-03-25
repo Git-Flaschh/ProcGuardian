@@ -1,0 +1,11 @@
+Package: procguardian
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Flaschh <none@none.com>
+Depends: python3 (>= 3.6), python3-psutil
+Description: Démon de surveillance des processus Linux
+ Ce paquet fournit un démon qui surveille les processus en cours d'exécution 
+ pour détecter des comportements suspect, tel que des privilèges root ou des 
+ executions depuis des répertoires temporaires.
