@@ -214,14 +214,14 @@ def main_loop(interval):
                 # 3) Détecte un processus Python lancé en root
                 if is_python_as_root(proc):
                     process_alert(proc, "Processus Python lancé en root détecté")
-                
+   
                 # 4) Détecte un process qui utilise des fichiers dans /tmp ou /var/tmp
                 if is_process_using_suspect_files(proc):
                     process_alert(proc, "Processus lancé depuis un fichier suspect")
 
-                # 5) [optionnel/possible] Détecte un process avec arguments suspects (wget, curl, etc.)
-                # if is_process_with_suspect_args(proc):
-                #     process_alert(proc, "Processus utilisant des arguments suspects")
+                # 5) Détecte un process avec arguments suspects (wget, curl, etc.)
+                if is_process_with_suspect_args(proc):
+                    process_alert(proc, "Processus utilisant des arguments suspects")
 
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
                 # En cas d'exception, on affiche un message d'erreur (si QUIET_MODE est faux)
