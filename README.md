@@ -87,6 +87,9 @@ Le démon de surveillance des processus offre les fonctionnalités suivantes :
 Si vous rencontrez des problèmes, veuillez consulter les logs du système :
 
 ```bash
+sudo procguardian logs
+```
+```bash
 sudo journalctl -u procguardian
 ```
 
